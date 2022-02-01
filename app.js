@@ -1,14 +1,12 @@
-// Requiring module
+// Requiring modules
 const express = require('express');
 const mysql = require("mysql");
-// const res = require('express/lib/response');
 
-// Creating express object
+// Creation of express object
 const app = express();
  
-// CORS policies
+// CORS policies require and use
 const cors = require('cors');
-
 app.use(cors());
 
 //Connecting with mysql db
@@ -34,9 +32,8 @@ app.get('/jokes', (req, res) => {
 
 // Handling GET request
 app.get('/', (req, res) => {
-	res.send('A simple Node App is '
-		+ 'running on this server')
-	res.end()
+	res.send('Go to the /jokes endpoint to start the Jokes App');
+	res.end();
 })
 
 // Port Number
