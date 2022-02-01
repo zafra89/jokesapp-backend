@@ -1,22 +1,36 @@
 // Requiring module
 const express = require('express');
+const mysql = require("mysql");
+// const res = require('express/lib/response');
 
 // Creating express object
 const app = express();
+ 
+// CORS policies
+const cors = require('cors');
 
-//conecting with pool mysql db
-const pool = require('./mysql-db-conection');
+app.use(cors());
+
+//Connecting with mysql db
+var connection = mysql.createConnection({
+    host: "localhost",
+    port: 3306,
+    user: "jose",
+    password: "password",
+    database: "jokesdb",
+  });
 
 // Display all jokes
-app.get('/jokes', (request, response) => {
-    pool.query('SELECT * FROM jokesdb', (error, result) => {
+app.get('/jokes', (req, res) => {
+    const sql = `SELECT * FROM result;`;
+
+    connection.query(sql, (error, results) => {
         if (error) throw error;
-
-        response.send(result);
-        console.log(result)
-    });
-});
-
+        if (results) {
+            res.send(results);
+        }
+    })
+})
 
 // Handling GET request
 app.get('/', (req, res) => {
