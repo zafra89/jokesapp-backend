@@ -8,8 +8,8 @@ Download XAMPP if you don't have it already installed. Then you need to access p
 
 # Installation
 
-Run `npm install` script to install dependencies and devDependencies from package.json. Apache and MySql servers must be running.
+Run `npm install` script to install dependencies and devDependencies from package.json.
 
 # Development server
 
-Run `npm start` to run the backend when you have completed the installation and DB setup.
+Run `npm start` to run the backend when you have completed the installation and DB setup. Apache and MySql servers must be running.
